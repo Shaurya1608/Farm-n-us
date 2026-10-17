@@ -51,8 +51,8 @@ export default function Home() {
           {/* 06 — FROM OUR FARMS: And then, something begins to grow */}
           <ProduceSection />
 
-          {/* 07 — THE BIGGER IDEA: Agriculture is a relationship worth rebuilding */}
-          <BiggerIdeaSection />
+          {/* 07 — THE BIGGER IDEA: Agriculture is a relationship worth rebuilding (Temporarily disabled) */}
+          {/* <BiggerIdeaSection /> */}
 
           {/* 08 — WORTH KNOWING: Featured food & farming stories */}
           <WorthKnowingSection />
