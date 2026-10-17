@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand Palette */
+  --bg-green: #FFFFFF;
+  --bg-green-alt: #FAFCF8;
+  --bg-dark-green: #356E26;
+  --text-primary: #111812;
+  --text-muted: #525B53;
+  --accent-green: #2D7324;
+  --border-color: #E5EBE5;
+
+  --background: #FFFFFF;
+  --foreground: var(--text-primary);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-outfit), sans-serif;
+  --font-serif: var(--font-serif);
+}
+
+body {
+  background: #FFFFFF;
+  color: var(--text-primary);
+  overflow-x: clip;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+::selection {
+  background: #2D7324;
+  color: #fff;
+}
+
+/* ── SMOOTH SCROLL KEYFRAMES & MICRO-INTERACTIONS ── */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ── HOOK SECTION: SLIDE-IN ANIMATIONS ── */
+/* Forward / Next: entire card enters from the left */
+@keyframes hook-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-48px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Backward / Prev: entire card enters from the right */
+@keyframes hook-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(48px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.88;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+/* ── SCROLL REVEAL STYLES ── */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-100 {
+  transition-delay: 100ms;
+}
+
+.reveal-delay-200 {
+  transition-delay: 200ms;
+}
+
+.reveal-delay-300 {
+  transition-delay: 300ms;
+}
+
+.reveal-delay-400 {
+  transition-delay: 400ms;
+}
